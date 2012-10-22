@@ -1,0 +1,18 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<div class="row frontPadding">
+    <div class="three columns">
+    </div>
+    <div class="six columns">
+        #{form @Application.search() }
+        <div class="text-center">
+            <input type="text" name="txt" placeHolder="Search for a product..." maxlength="100"/>
+            <input type="submit" class="button round large" value="Search" />
+        </div>
+        #{/form}
+    </div>
+    
+    <div class="three columns">
+    </div>
+</div>

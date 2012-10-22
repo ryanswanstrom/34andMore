@@ -1,0 +1,33 @@
+#{extends 'main.html' /}
+#{set 'title'}
+#{if item.name.length() > 30}
+${item.name.substring(0, 25) }
+#{/if}
+#{else}
+${item.name}
+#{/else}
+#{/set}
+
+<div class="row itemPadding">
+    <div class="four columns"> 
+        #{list item.images}            
+        <img alt="${item.name}" src="${_.small}"/> <br />
+        #{/list}
+        #{else}
+        &nbsp;
+        #{/else}
+
+    </div>
+    <div class="eight columns">
+        <h2>${item.name}</h2>
+        #{if _item?.images}
+        <img alt="${item.name}" src="${item.images[0].large}" />
+        #{/if}
+        <p>${item.price.formatCurrency('USD')}</p>
+        <p>${item.desc}</p>
+
+        <img src="${item.faviconUrl()}" />
+        <a href="${item.url}" target="_new">${item.company}</a>
+
+    </div>
+</div>

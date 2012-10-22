@@ -1,0 +1,20 @@
+/* Cross Browser Effects */ 
+.brdr { -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; behavior: url(src/PIE.htc); }
+.shdw { -moz-box-shadow: 1px 1px 3px #ccc; -webkit-box-shadow: 1px 1px 3px #ccc; box-shadow: 1px 1px 3px #ccc; }
+.shdw:hover { -moz-box-shadow: 1px 1px 7px #ccc; -webkit-box-shadow: 1px 1px 7px #ccc; box-shadow: 1px 1px 7px #ccc; }
+.opct { opacity: .50; -ms-filter: "alpha(opacity=50)"; filter: alpha(opacity=50); -khtml-opacity: .50; -moz-opacity: .50; }
+
+.whiteback { background-color: #fff;}
+
+.frontPadding {
+    padding-top: 140px;
+    padding-bottom: 180px;
+}
+
+.resultsPadding {
+    padding-top: 35px;
+}
+
+.itemPadding {
+    padding-top: 60px;
+}

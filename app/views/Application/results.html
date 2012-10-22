@@ -1,0 +1,53 @@
+#{extends 'main.html' /}
+#{set title:result.query /}
+
+
+<div class="row resultsPadding">
+    <div class="twelve columns text-center">
+
+        <h3 class="topPadding">"${result.query}" Results</h3>
+
+        %{i=0;prop0=[];prop1=[];prop2=[];prop3=[];}%
+        #{list items:result.getItems() , as:'item'}
+            #{if i%4 == 0 }
+            %{prop0.add(item);}%
+            #{/if}
+            #{elseif i%4 == 1}
+            %{prop1.add(item);}%
+            #{/elseif}
+            #{elseif i%4 == 2}
+            %{prop2.add(item);}%
+            #{/elseif}
+            #{elseif i%4 == 3}
+            %{prop3.add(item);}%
+            #{/elseif}
+            %{i++;}%
+        #{/list}
+        #{else}
+        <p>Sorry, no results found. Please try different search terms.</p>
+        #{/else}
+    </div>
+</div>
+
+<div class="row">
+    <div class="three columns">
+        #{list prop0}
+        #{item item:_ /}
+        #{/list}
+    </div>
+    <div class="three columns">
+        #{list prop1}
+        #{item item:_ /}
+        #{/list}
+    </div>
+    <div class="three columns">
+        #{list prop2}
+        #{item item:_ /}
+        #{/list}
+    </div>
+    <div class="three columns">
+        #{list prop3}
+        #{item item:_ /}
+        #{/list}
+    </div>
+</div>

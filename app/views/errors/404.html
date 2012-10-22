@@ -1,0 +1,21 @@
+#{extends 'main.html' /}
+#{set title: 'Page not found' /}
+
+
+<div class="row">
+    <div class="one columns"></div>
+    <div class="ten columns"> 
+
+        #{if play.mode.name() == 'DEV'}
+        #{404 result /}
+        #{/if}
+        #{else}
+        <h1>Not found</h1>
+        <p>
+            ${result.message}
+        </p>
+        #{/else}
+    </div>
+    <div class="one columns"></div>
+</div>
+

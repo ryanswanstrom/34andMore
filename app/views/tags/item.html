@@ -1,0 +1,18 @@
+
+<div class="panel brdr shdw whiteback text-center">
+    <h6>#{a @Application.showItem(_item.id)}${_item.name}#{/a}</h6>
+    #{if _item?.images}
+    #{a @Application.showItem(_item.id)}
+    <img alt="${_item?.name}" src="${_item?.images[0]?.medium}" />
+    #{/a}
+    #{/if}
+    <p>${_item.price.formatCurrency('USD')}</p>
+    <p>
+        <small>
+            #{if _item.desc.length() > 100} ${_item.desc.substring(0,80)}...  #{/if}#{else}${_item.desc}#{/else}
+        </small>
+    </p>
+
+    <img src="${_item.faviconUrl()}" />
+    <a href="${_item.url}" target="_new">${_item.company}</a>
+</div>

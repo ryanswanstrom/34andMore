@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8" />
+
+        <!-- Set the viewport width to device width for mobile -->
+        <meta name="viewport" content="width=device-width" />
+
+        <title>${play.configuration['application.name']} | #{get 'title' /}</title>
+
+        <!-- Included CSS Files (Compressed) -->
+        #{stylesheet 'foundation.min.css' /}
+        #{stylesheet 'app.css' /}
+        #{stylesheet 'main.css' /}
+        #{script 'modernizr.foundation.js' /}
+
+        <!-- IE Fix for HTML5 Tags -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+        <header class="fixed contain-to-grid">
+        <nav class="top-bar">
+            <ul>
+                <li class="name">
+                    <h1>
+                        #{a @Application.index() }${play.configuration['application.name']}#{/a}
+                    </h1>
+                </li>
+                <li class="toggle-topbar"><a href="#"></a></li>
+            </ul>
+
+            <section>
+                <ul class="right">
+                    <li class="search">
+                        #{form @Application.search() }
+                        <input type="search" name="txt" placeHolder="Find a Product..."  maxlength="100"/>
+                        #{/form}
+                    </li>
+                </ul>
+            </section>
+        </nav>
+        </header>
+
+        <!-- div class="row">
+            <div class="six columns">
+                <h1>#{a @Application.index() }${play.configuration['application.name']}#{/a}</h1>
+            </div>
+            <div class="six columns">
+                <div class="right">
+                    <h2>
+                    #{form @Application.search() }
+                    <div class="row">
+                        <div class="eight columns">
+                            <input type="text" name="txt" placeHolder="Find a Product..." />
+                        </div>
+                        <div class="four columns">
+                            <input type="submit" class="button round small" value="Search" />
+                        </div>
+                    </div>
+                    #{/form}
+                    </h2>
+                </div>
+            </div>
+            <hr />
+        </div -->
+
+        #{doLayout /}
+
+        <!-- Footer -->
+
+        <footer class="row">
+            <div class="twelve columns">
+                <hr />
+                <div class="row">
+                    <div class="six columns">
+                        <p>&copy; Copyright ${new Date().format("yyyy")}</p>
+                    </div>
+                    <div class="six columns">
+                        <ul class="link-list right">
+                            <li>#{a @Application.about()}About#{/a}</li>
+                            <li><a href="http://twitter.com">Twitter</a></li>
+                            <li><a href="http://facebook.com">Facebook</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div> 
+        </footer>
+
+        <!--Google Analytics-->
+
+        <!--Google Analytics-->
+
+
+        <!-- Included JS Files (Compressed) -->
+        #{script 'jquery.js' /}
+        #{script 'foundation.min.js' /}
+
+        <!-- Initialize JS Plugins -->
+        #{script 'app.js' /}
+    </body>
+</html>
