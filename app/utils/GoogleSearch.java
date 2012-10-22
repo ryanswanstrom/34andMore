@@ -23,7 +23,7 @@ public class GoogleSearch {
     private static final int SIZE_SMALL = 64;
     private static final int SIZE_MEDIUM = 128;
     private static final int SIZE_LARGE = 220;
-    private static final int ITEMS_RETURNED = 44;
+    private static final int ITEMS_RETURNED = 34;
 
     /**
      * This method will go to the Google API
