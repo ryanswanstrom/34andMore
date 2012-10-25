@@ -26,28 +26,36 @@
 
     </head>
     <body>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
 
         <header class="fixed contain-to-grid">
-        <nav class="top-bar">
-            <ul>
-                <li class="name">
-                    <h1>
-                        #{a @Application.index() }${play.configuration['application.name']}#{/a}
-                    </h1>
-                </li>
-                <li class="toggle-topbar"><a href="#"></a></li>
-            </ul>
-
-            <section>
-                <ul class="right">
-                    <li class="search">
-                        #{form @Application.search() }
-                        <input type="search" name="txt" placeHolder="Find a Product..."  maxlength="100"/>
-                        #{/form}
+            <nav class="top-bar">
+                <ul>
+                    <li class="name">
+                        <h1>
+                            #{a @Application.index() }${play.configuration['application.name']}#{/a}
+                        </h1>
                     </li>
+                    <li class="toggle-topbar"><a href="#"></a></li>
                 </ul>
-            </section>
-        </nav>
+
+                <section>
+                    <ul class="right">
+                        <li class="search">
+                            #{form @Application.search() }
+                            <input type="search" name="txt" placeHolder="Find a Product..."  maxlength="100"/>
+                            #{/form}
+                        </li>
+                    </ul>
+                </section>
+            </nav>
         </header>
 
         <!-- div class="row">
@@ -103,8 +111,7 @@
         <!-- Included JS Files (Compressed) -->
         #{script 'jquery.js' /}
         #{script 'foundation.min.js' /}
-
-        <!-- Initialize JS Plugins -->
         #{script 'app.js' /}
+
     </body>
 </html>
