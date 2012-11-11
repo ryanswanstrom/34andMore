@@ -8,7 +8,6 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import play.Logger;
-import play.data.validation.Max;
 import play.data.validation.MaxSize;
 import play.data.validation.Min;
 import play.data.validation.MinSize;
@@ -36,16 +35,10 @@ public class Item extends BaseModel {
     @MaxSize(500)
     public String company;
     public List<ImageInfo> images;
-    /* I am not sure this is the right place for stars, each item is going 
-    to be a different entry in the DB. */
-    @Min(0.0d)
-    @Max(5.0d)
-    public Double stars;
     @Reference
     public Search search;
 
     private Item() {
-        this.stars = 0.0d;
     }
 
     public Item(String name) {

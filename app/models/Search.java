@@ -16,7 +16,7 @@ public class Search extends BaseModel {
     public String query;
 
     public Search(String txt) {
-        Logger.info("search is '%s'", txt);
+        Logger.debug("search is '%s'", txt);
         this.query = txt;
     }
 

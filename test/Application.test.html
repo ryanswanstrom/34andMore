@@ -4,4 +4,12 @@
     // Open the home page, and check that no error occured
     open('/')
     assertNotTitle('Application error')
+    assertTextPresent('34 and More')
+#{/selenium}
+
+#{selenium}
+    // Open the home page, and check that no error occured
+    open('/about')
+    assertNotTitle('Application error')
+    assertTextPresent('Github')
 #{/selenium}

@@ -48,10 +48,10 @@ public class GoogleSearch {
         request.setParameter("thumbnails", SIZE_SMALL + ":*," + SIZE_MEDIUM + ":*," + SIZE_LARGE + ":*");
         request.setParameter("maxResults", ITEMS_RETURNED);
         JsonElement json = request.get().getJson();
-        Logger.info("json: %s", json);
+        Logger.debug("json: %s", json);
         if (json != null) {
             JsonArray items = json.getAsJsonObject().getAsJsonArray("items");
-            Logger.info("number of items returned: %d", (items == null)?0:items.size());
+            Logger.debug("number of items returned: %d", (items == null)?0:items.size());
             for (int i = 0; items != null && i < items.size(); i++) {
                 Item item = populateItem(items.get(i).getAsJsonObject(), search);
                 if (item != null) {
@@ -73,7 +73,6 @@ public class GoogleSearch {
         JsonElement productEl = itemObj.get("product");
         if (productEl != null) {
             JsonObject product = productEl.getAsJsonObject();
-            Logger.info("product %s", product);
             String name = getString(product, "title");
             item = new Item(name, search);
             item.url = getString(product, "link");
@@ -94,19 +93,15 @@ public class GoogleSearch {
 //                }
 //            }
             JsonArray inventories = product.getAsJsonArray("inventories");
-            Logger.info("inventories: %s", inventories);
             if (null != inventories) {
-                Logger.info("# of inventories %d", inventories.size());
                 for (int c = 0; c < inventories.size(); c++) {
                     JsonObject inventory = inventories.get(c).getAsJsonObject();
-                    Logger.info("inventory is %s", inventory);
                     item.price = inventory.get("price").getAsDouble();
                 }
             }
 
             // get images
             JsonArray imgArray = product.getAsJsonArray("images");
-            Logger.info("# of images: %d", (imgArray == null)?0:imgArray.size());
             for (int j = 0; imgArray != null && j < imgArray.size(); j++) {
                 JsonObject image = imgArray.get(j).getAsJsonObject();
                 ImageInfo imageInfo = new ImageInfo();
