@@ -21,6 +21,6 @@ public class Search extends BaseModel {
     }
 
     public List<Item> getItems() {
-        return Item.find("bySearch", this).asList();
+        return Item.find("bySearch", this).order("price").asList();
     }
 }
