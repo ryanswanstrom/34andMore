@@ -1,3 +1,5 @@
+*Note: Google has shut down the Shopping API, so this no longer works.*
+
 # About the App
 This is a app that performs a search against the Google product API.
 It sends a query and then returns the results in a different view
