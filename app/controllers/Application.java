@@ -11,10 +11,10 @@ import utils.GoogleSearch;
 
 public class Application extends Controller {
 
-    public static void index() {
+    public static void index() { 
         render();
     }
-    
+
     public static void search(String txt) {
         if (StringUtils.isEmpty(txt)) {
             index();
@@ -33,7 +33,7 @@ public class Application extends Controller {
         String url = Router.getFullUrl("Application.results", map);
         render(result, url);
     }
-    
+
     public static void showItem(String id) {
         Item item = Item.findById(id);
         notFoundIfNull(item);
@@ -42,7 +42,7 @@ public class Application extends Controller {
         String url = Router.getFullUrl("Application.showItem", map);
         render(item, url);
     }
-    
+
     public static void about() {
         render();
     }

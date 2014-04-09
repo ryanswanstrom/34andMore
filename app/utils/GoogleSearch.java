@@ -28,9 +28,9 @@ public class GoogleSearch {
     /**
      * This method will go to the Google API
      * and search for results based upon a query string.
-     * 
+     *
      * TODO: Lots of null checking, possibly breakup the method.
-     * 
+     *
      * @param query
      * @return A search object or null if the search object cannot be saved
      *      (invalid search query)
@@ -48,7 +48,7 @@ public class GoogleSearch {
         request.setParameter("thumbnails", SIZE_SMALL + ":*," + SIZE_MEDIUM + ":*," + SIZE_LARGE + ":*");
         request.setParameter("maxResults", ITEMS_RETURNED);
         JsonElement json = request.get().getJson();
-        Logger.debug("json: %s", json);
+        Logger.info("json: %s", json);
         if (json != null) {
             JsonArray items = json.getAsJsonObject().getAsJsonArray("items");
             Logger.debug("number of items returned: %d", (items == null)?0:items.size());
@@ -63,7 +63,7 @@ public class GoogleSearch {
     }
 
     /**
-     * 
+     *
      * @param itemObj
      * @param search
      * @return An Item or null if a problem occurs
@@ -130,7 +130,7 @@ public class GoogleSearch {
 
     /**
      * This method will get the element with name.
-     * 
+     *
      * @param jsonObj
      * @param name
      * @return The String value, null if name not found
